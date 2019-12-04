@@ -188,11 +188,13 @@ RCT_EXPORT_METHOD(open:(NSDictionary *)options
 
     UIViewController *controller = RCTPresentedViewController();
     shareController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, __unused NSArray *returnedItems, NSError *activityError) {
-        if (activityError) {
-            failureCallback(activityError);
-        } else if (completed || activityType == nil) {
-            successCallback(@[@(completed), RCTNullIfNil(activityType)]);
-        }
+        // bind does not care about call backs 
+//        if (activityError) {
+//            failureCallback(activityError);
+//        } else
+//        if (completed || activityType == nil) {
+//            successCallback(@[@(completed), RCTNullIfNil(activityType)]);
+//        }
     };
 
     shareController.modalPresentationStyle = UIModalPresentationPopover;
